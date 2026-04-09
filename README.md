@@ -84,7 +84,7 @@ Interactions:
 
 /video  
 car-video.mp4  
-  /img 
+/img 
 logo.png
 index.html  
 style.css  
