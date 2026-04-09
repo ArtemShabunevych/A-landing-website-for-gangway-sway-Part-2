@@ -83,9 +83,9 @@ Interactions:
 ## File Structure
 
 /video  
-  /images  
-  bg.mp4  
-
+car-video.mp4  
+  /img 
+logo.png
 index.html  
 style.css  
 script.js  
