@@ -1,4 +1,8 @@
-![Uploading screencapture-localhost-63342-untitled10-index-html-2026-04-09-22_09_06.png…]()
+## Preview
+
+<p align="center">
+  <img src="assets/preview.png" width="1000"/>
+</p>
 
 # WAG — Landing Page for 3D Wheel Alignment (Hunter)
 
