@@ -1,87 +1,96 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Розвал-сходження Hunter у Григорія</title>
-    <meta name="description" content='3D розвал-сходження "Hunter" у Григорія — професійне регулювання геометрії коліс.'/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" rel="stylesheet"/>
-    <link rel="stylesheet" href="../untitled10/style.css"/>
+    <meta
+            name="description"
+            content="3D розвал-сходження Hunter у Григорія. Точне налаштування геометрії коліс, швидкий запис, приклади робіт та відгуки клієнтів."
+    />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="page-bg"></div>
-
 <header class="header" id="top">
     <div class="container header__shell">
-        <a href="#top" class="logo">
-            <div class="logo__image">
-                <img src="img/logo.png" alt="WAG logo"/>
+        <a href="#top" class="header__brand" aria-label="WAG - на головну">
+            <div class="header__logo">
+                <img src="img/logo.png" alt="WAG" />
+            </div>
+            <div class="header__title">
+                <strong>3D РОЗВАЛ-СХОДЖЕННЯ “HUNTER”</strong>
+                <span>У ГРИГОРІЯ</span>
             </div>
         </a>
 
-        <div class="header__title">
-            <span>3D РОЗВАЛ-СХОДЖЕННЯ "HUNTER"</span>
-            <strong>У ГРИГОРІЯ</strong>
-        </div>
+        <nav class="nav" id="nav">
+            <a href="#services">Послуги</a>
+            <a href="#benefits">Переваги</a>
+            <a href="#reviews">Відгуки</a>
+            <a href="#booking">Заявка</a>
+        </nav>
 
         <div class="header__right">
-            <nav class="nav" id="nav">
-                <a href="#services">Послуги</a>
-                <a href="#advantages">Переваги</a>
-                <a href="#reviews">Відгуки</a>
-                <a href="#booking">Заявка</a>
-            </nav>
-
-            <a href="#booking" class="btn btn--primary nav__btn">
-                <span class="material-symbols-outlined btn__icon">calendar_add_on</span>
-                Швидкий запис
+            <a href="#booking" class="nav__btn">
+                <span>Швидкий запис</span>
             </a>
-        </div>
 
-        <button class="burger" id="burger" aria-label="Меню">
-            <span></span><span></span><span></span>
-        </button>
+            <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>
 
 <main>
-    <div class="hero-video-wrapper">
-        <video autoplay muted loop playsinline>
-            <source src="../untitled10/video/car-video.mp4" type="video/mp4"/>
+    <section class="hero" id="hero">
+        <video
+                class="hero__video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+        >
+            <source src="video/car-video.mp4" type="video/mp4" />
         </video>
-        <div class="hero-overlay">
-            <h1 class="hero-text">Хочеш щоб твоє авто їхало так само гарно?</h1>
-            <a href="#booking" class="btn btn--hero">
-                <span class="material-symbols-outlined btn__icon">calendar_add_on</span>
-                Записатися
-            </a>
-        </div>
-    </div>
 
-    <section class="section reveal" id="advantages">
+        <div class="hero__overlay"></div>
+
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <h1 class="hero__title">Хочеш щоб твоє авто їхало так само гарно?</h1>
+                <p class="hero__text">
+                    Тоді їдь до нас на розвал сходження!
+                </p>
+                <a href="#booking" class="hero__btn">Записатися</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits section" id="benefits">
         <div class="container">
             <div class="section-head section-head--center">
-                <h2 class="dark-title">ЧОМУ ОБИРАЮТЬ НАС</h2>
+                <h2 class="section-title">Чому обирають нас</h2>
             </div>
 
-            <div class="advantages-grid">
-                <article class="adv-card interactive-card">
-                    <div class="adv-card__icon"><span class="material-symbols-outlined">precision_manufacturing</span></div>
+            <div class="benefits__grid">
+                <article class="benefit-card reveal">
+                    <div class="benefit-card__icon">⚙️</div>
                     <h3>Сучасне обладнання Hunter</h3>
                     <p>Точне 3D вимірювання для коректного налаштування геометрії коліс.</p>
                 </article>
 
-                <article class="adv-card interactive-card">
-                    <div class="adv-card__icon"><span class="material-symbols-outlined">bolt</span></div>
+                <article class="benefit-card reveal">
+                    <div class="benefit-card__icon">⚡</div>
                     <h3>Швидке обслуговування</h3>
                     <p>Зрозумілий процес роботи без зайвого очікування.</p>
                 </article>
 
-                <article class="adv-card interactive-card">
-                    <div class="adv-card__icon"><span class="material-symbols-outlined">verified</span></div>
+                <article class="benefit-card reveal">
+                    <div class="benefit-card__icon">🛞</div>
                     <h3>Досвід із різними авто</h3>
                     <p>Легкові авто, SUV, мікроавтобуси та складні випадки.</p>
                 </article>
@@ -89,59 +98,146 @@
         </div>
     </section>
 
-    <section class="section reveal" id="reviews">
+    <section class="services section" id="services">
         <div class="container">
-            <div class="section-head section-head--center">
-                <h2 class="dark-title">ВІДГУКИ КЛІЄНТІВ</h2>
+            <div class="section-head section-head--center services__heading-box">
+                <h2 class="section-title">Послуги та приклади робіт</h2>
+                <p class="section-text">Основні роботи та приклади виконаних задач.</p>
             </div>
 
-            <div class="reviews-grid">
-                <article class="review-card interactive-card">
+            <div class="services__grid" id="servicesGrid">
+                <article class="service-card reveal">
+                    <div class="service-card__media">
+                        <img src="https://www.arvenauto.com/gallery/razval-bmv-2-scaled.jpg" alt="Перевірка параметрів розвалу-сходження" />
+                    </div>
+                    <div class="service-card__body">
+                        <span class="service-card__tag">Діагностика</span>
+                        <h3>Перевірка параметрів розвалу-сходження</h3>
+                        <p>Базова перевірка геометрії підвіски та точне вимірювання перед регулюванням.</p>
+                        <div class="service-card__bottom">
+                            <strong>150 ₴</strong>
+                            <a href="#booking" class="service-card__btn" data-service="Перевірка параметрів розвалу-сходження">Записатися</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="service-card__media">
+                        <img src="https://master.shop/storage/units/big/baner-rozval-shodzhennya-tesla-model-x-v-master-service.jpg" alt="Заміна наконечника" />
+                    </div>
+                    <div class="service-card__body">
+                        <span class="service-card__tag">Супутнє</span>
+                        <h3>Заміна наконечника</h3>
+                        <p>Підготовка ходової до правильного налаштування та усунення люфтів.</p>
+                        <div class="service-card__bottom">
+                            <strong>150 ₴</strong>
+                            <a href="#booking" class="service-card__btn" data-service="Заміна наконечника">Записатися</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="service-card__media">
+                        <img src="https://sto-tireland.com.ua/upload/images/regulirovka-razvala-shozhdeniya-1-min.jpg" alt="Розробка заіржавілої деталі" />
+                    </div>
+                    <div class="service-card__body">
+                        <span class="service-card__tag">Супутнє</span>
+                        <h3>Розробка заіржавілої деталі</h3>
+                        <p>Підготовка вузлів та з’єднань до подальшого точного регулювання.</p>
+                        <div class="service-card__bottom">
+                            <strong>150 ₴</strong>
+                            <a href="#booking" class="service-card__btn" data-service="Розробка заіржавілої деталі">Записатися</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-card reveal service-card--extra is-hidden">
+                    <div class="service-card__media">
+                        <img src="https://center.poltava.ua/images/novosti/%D1%80%D0%BE%D0%B7%D0%B2%D0%B0%D0%BB-%D1%81%D1%85%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F.jpg" alt="Регулювання ВАЗ, Москвич, Волга" />
+                    </div>
+                    <div class="service-card__body">
+                        <span class="service-card__tag">Класика</span>
+                        <h3>Регулювання ВАЗ, Москвич, Волга</h3>
+                        <p>Окремий підхід до класичних авто та нестандартних конфігурацій ходової.</p>
+                        <div class="service-card__bottom">
+                            <strong>350 ₴</strong>
+                            <a href="#booking" class="service-card__btn" data-service="Регулювання ВАЗ, Москвич, Волга">Записатися</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-card reveal service-card--extra is-hidden">
+                    <div class="service-card__media">
+                        <img src="https://avtomotivservice.ua/wp-content/uploads/2024/04/%D0%A0%D0%BE%D0%B7%D0%B2%D0%B0%D0%BB-%D1%81%D1%85%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F.jpg" alt="Регулювання передньої осі легкового авто" />
+                    </div>
+                    <div class="service-card__body">
+                        <span class="service-card__tag">Популярне</span>
+                        <h3>Регулювання передньої осі легкового авто</h3>
+                        <p>Точне налаштування для стабільного руху, керованості та рівного зносу гуми.</p>
+                        <div class="service-card__bottom">
+                            <strong>350 ₴</strong>
+                            <a href="#booking" class="service-card__btn" data-service="Регулювання передньої осі легкового авто">Записатися</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-card reveal service-card--extra is-hidden">
+                    <div class="service-card__media">
+                        <img src="https://car-service.pro/media/p/5/razval.jpg" alt="Регулювання передньої осі мікроавтобуса" />
+                    </div>
+                    <div class="service-card__body">
+                        <span class="service-card__tag">Мікроавтобуси</span>
+                        <h3>Регулювання передньої осі мікроавтобуса</h3>
+                        <p>Робота з більшими авто з урахуванням навантаження та особливостей підвіски.</p>
+                        <div class="service-card__bottom">
+                            <strong>400 ₴</strong>
+                            <a href="#booking" class="service-card__btn" data-service="Регулювання передньої осі мікроавтобуса">Записатися</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="services__more">
+                <button class="services__toggle" id="toggleServices" type="button">Завантажити ще</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews section" id="reviews">
+        <div class="container">
+            <div class="section-head section-head--center">
+                <h2 class="section-title">Відгуки клієнтів</h2>
+            </div>
+
+            <div class="reviews__grid">
+                <article class="review-card reveal">
                     <div class="review-card__top">
-                        <div class="review-avatar">А</div>
+                        <div class="review-card__avatar">А</div>
                         <div>
                             <h3>Аня</h3>
-                            <div class="review-stars">
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                            </div>
+                            <div class="review-card__stars">★★★★★</div>
                         </div>
                     </div>
                     <p>Дуже крутий сервіс. Швидко, зрозуміло і без зайвих питань.</p>
                 </article>
 
-                <article class="review-card interactive-card">
+                <article class="review-card reveal">
                     <div class="review-card__top">
-                        <div class="review-avatar">П</div>
+                        <div class="review-card__avatar">П</div>
                         <div>
                             <h3>Петя</h3>
-                            <div class="review-stars">
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                            </div>
+                            <div class="review-card__stars">★★★★★</div>
                         </div>
                     </div>
                     <p>Все пройшло швидко та легко. Машина після регулювання їде рівно.</p>
                 </article>
 
-                <article class="review-card interactive-card">
+                <article class="review-card reveal">
                     <div class="review-card__top">
-                        <div class="review-avatar">В</div>
+                        <div class="review-card__avatar">В</div>
                         <div>
                             <h3>Вася</h3>
-                            <div class="review-stars">
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                                <span class="material-symbols-outlined">star</span>
-                            </div>
+                            <div class="review-card__stars">★★★★★</div>
                         </div>
                     </div>
                     <p>Працівники були дуже ввічливими, результатом задоволений.</p>
@@ -150,205 +246,85 @@
         </div>
     </section>
 
-    <section class="section reveal" id="services">
+    <section class="booking section" id="booking">
         <div class="container">
-            <div class="section-head section-head--light section-head--rounded services-head">
-                <h2>ПОСЛУГИ ТА ПРИКЛАДИ РОБІТ</h2>
-                <p>Основні роботи та приклади виконаних задач.</p>
+            <div class="section-head section-head--center">
+                <span class="section-kicker">Швидкий запис</span>
+                <h2 class="section-title">Форма для заявки</h2>
+                <p class="section-text">
+                    Залиште свої дані, і ми зв’яжемося з вами для підтвердження запису.
+                </p>
             </div>
 
-            <div class="services-booking-wrap">
-                <div class="services-col">
-                    <div class="services-grid" id="servicesGrid">
-                        <article class="service-card service-item">
-                            <div class="service-card__image">
-                                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMVFhUXFxcWGBgXFhcYGRcXFRcXFxUVFxcYHSggGB0lHRUXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFS0dFR0tKystKy0rLS0tLSstLSsrLSsrLS0rKysrNS0tLSw3LS03MCsrKy03Ny03MjctNywsLf/AABEIAJ8BPgMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAgMEBgcBAAj/xABGEAACAQIDBAcECAMGBQUBAAABAgMAEQQSIQUGMUETIlFhcYGRBzKxwRQjQlJyodHwgpLhFTNDYrLCFlNzorMkJYOT02P/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQIDBAX/xAAoEQEAAQQCAQMEAwEAAAAAAAAAAQIRAxIhMUETUVJxBCIyQmGBBf/aAAwDAQACEQMRAD8A0B8OpHCgu1N2opBwsaMzLXWmqtUzXa+wZIBdTmX86iphjGoqcY2R58bXoWL2mDLbRQcdYpkpqBaJhqRqrMbVVHKbVJqW3gI5TiLqNOdWTYGcF41O4MKrBmvLapTqTrEDzBq3bWbT7J2G+IUzONkXiSTYeF+VczHlJEJ7yqkSqSSBTttscBJLcNI52RDxJPN27lHElQKxh0hUpQpVpSlKUpSlKUpSmNFRRUUVFFRRUURFFRRUURFFRRUURFFRRUVE0VFRZooqKKiYqKKiioooqKKiio0UVFFRRUURFFRRUURFU0VFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFRRUURFFR/2Q==" alt="Перевірка параметрів розвалу-сходження"/>
-                            </div>
-                            <div class="service-card__body">
-                                <span class="service-card__tag"><span class="material-symbols-outlined">search</span>Діагностика</span>
-                                <h3>Перевірка параметрів розвалу-сходження</h3>
-                                <strong>150 ₴</strong>
-                                <button class="btn btn--primary service-btn" data-service="Перевірка параметрів розвалу-сходження">
-                                    <span class="material-symbols-outlined btn__icon">calendar_add_on</span>Записатися
-                                </button>
-                            </div>
-                        </article>
+            <div class="booking__box reveal">
+                <form class="booking-form" id="bookingForm">
+                    <label class="field">
+                        <span>Ім’я</span>
+                        <input type="text" name="name" placeholder="Ваше ім’я" required />
+                    </label>
 
-                        <article class="service-card service-item">
-                            <div class="service-card__image">
-                                <img src="data:image/jpeg;base64,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" alt="Заміна наконечника"/>
-                            </div>
-                            <div class="service-card__body">
-                                <span class="service-card__tag"><span class="material-symbols-outlined">build</span>Супутнє</span>
-                                <h3>Заміна наконечника</h3>
-                                <strong>150 ₴</strong>
-                                <button class="btn btn--primary service-btn" data-service="Заміна наконечника">
-                                    <span class="material-symbols-outlined btn__icon">calendar_add_on</span>Записатися
-                                </button>
-                            </div>
-                        </article>
+                    <label class="field">
+                        <span>Телефон</span>
+                        <input type="tel" name="phone" placeholder="+38 (0__) ___ __ __" required />
+                    </label>
 
-                        <article class="service-card service-item">
-                            <div class="service-card__image">
-                                <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=400&q=80" alt="Розробка заіржавілої деталі"/>
-                            </div>
-                            <div class="service-card__body">
-                                <span class="service-card__tag"><span class="material-symbols-outlined">settings</span>Супутнє</span>
-                                <h3>Розробка заіржавілої деталі</h3>
-                                <strong>150 ₴</strong>
-                                <button class="btn btn--primary service-btn" data-service="Розробка заіржавілої деталі">
-                                    <span class="material-symbols-outlined btn__icon">calendar_add_on</span>Записатися
-                                </button>
-                            </div>
-                        </article>
+                    <label class="field">
+                        <span>Автомобіль</span>
+                        <input type="text" name="car" placeholder="Марка і модель авто" required />
+                    </label>
 
-                        <article class="service-card service-item hidden">
-                            <div class="service-card__image">
-                                <img src="https://images.unsplash.com/photo-1591293835940-934a7c4f2d9b?w=400&q=80" alt="Регулювання ВАЗ, Москвич, Волга"/>
-                            </div>
-                            <div class="service-card__body">
-                                <span class="service-card__tag"><span class="material-symbols-outlined">garage</span>Класика</span>
-                                <h3>Регулювання ВАЗ, Москвич, Волга</h3>
-                                <strong>350 ₴</strong>
-                                <button class="btn btn--primary service-btn" data-service="Регулювання ВАЗ, Москвич, Волга">
-                                    <span class="material-symbols-outlined btn__icon">calendar_add_on</span>Записатися
-                                </button>
-                            </div>
-                        </article>
+                    <label class="field">
+                        <span>Послуга</span>
+                        <select name="service" id="serviceSelect" required>
+                            <option value="">Оберіть послугу</option>
+                            <option>Перевірка параметрів розвалу-сходження</option>
+                            <option>Заміна наконечника</option>
+                            <option>Розробка заіржавілої деталі</option>
+                            <option>Регулювання ВАЗ, Москвич, Волга</option>
+                            <option>Регулювання передньої осі легкового авто</option>
+                            <option>Регулювання передньої осі мікроавтобуса</option>
+                        </select>
+                    </label>
 
-                        <article class="service-card service-item hidden">
-                            <div class="service-card__image">
-                                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&q=80" alt="Регулювання передньої осі легкового авто"/>
-                            </div>
-                            <div class="service-card__body">
-                                <span class="service-card__tag"><span class="material-symbols-outlined">local_fire_department</span>Популярне</span>
-                                <h3>Регулювання передньої осі легкового авто</h3>
-                                <strong>350 ₴</strong>
-                                <button class="btn btn--primary service-btn" data-service="Регулювання передньої осі легкового авто">
-                                    <span class="material-symbols-outlined btn__icon">calendar_add_on</span>Записатися
-                                </button>
-                            </div>
-                        </article>
+                    <label class="field field--full">
+                        <span>Коментар</span>
+                        <textarea name="comment" rows="5" placeholder="Напишіть деталі"></textarea>
+                    </label>
 
-                        <article class="service-card service-item hidden">
-                            <div class="service-card__image">
-                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Регулювання передньої осі мікроавтобуса"/>
-                            </div>
-                            <div class="service-card__body">
-                                <span class="service-card__tag"><span class="material-symbols-outlined">airport_shuttle</span>Мікроавтобуси</span>
-                                <h3>Регулювання передньої осі мікроавтобуса</h3>
-                                <strong>400 ₴</strong>
-                                <button class="btn btn--primary service-btn" data-service="Регулювання передньої осі мікроавтобуса">
-                                    <span class="material-symbols-outlined btn__icon">calendar_add_on</span>Записатися
-                                </button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="section-action">
-                        <button class="btn btn--primary" id="loadMoreBtn">
-                            <span class="material-symbols-outlined btn__icon">expand_more</span>
-                            Завантажити ще
-                        </button>
-                    </div>
-                </div>
-
-                <div class="booking-col" id="booking">
-                    <div class="booking-form-wrap card-block">
-                        <h2 class="booking-title">Швидкий запис</h2>
-                        <p class="booking-sub">Залиште дані — ми зв'яжемося для підтвердження.</p>
-
-                        <form class="booking-form" id="bookingForm">
-                            <div class="input-group">
-                                <span class="material-symbols-outlined">person</span>
-                                <input type="text" name="name" placeholder="Ваше ім'я" required/>
-                            </div>
-
-                            <div class="input-group">
-                                <span class="material-symbols-outlined">phone</span>
-                                <input type="tel" name="phone" placeholder="Телефон" required/>
-                            </div>
-
-                            <div class="input-group">
-                                <span class="material-symbols-outlined">directions_car</span>
-                                <input type="text" name="car" placeholder="Марка / модель авто"/>
-                            </div>
-
-                            <div class="input-group input-group--select">
-                                <span class="material-symbols-outlined">build</span>
-                                <select name="service" id="serviceSelect" required>
-                                    <option value="">Оберіть послугу</option>
-                                    <option>Перевірка параметрів розвалу-сходження</option>
-                                    <option>Заміна наконечника</option>
-                                    <option>Розробка заіржавілої деталі</option>
-                                    <option>Регулювання ВАЗ, Москвич, Волга</option>
-                                    <option>Регулювання передньої осі легкового авто</option>
-                                    <option>Регулювання передньої осі мікроавтобуса</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group input-group--textarea">
-                                <span class="material-symbols-outlined">chat</span>
-                                <textarea name="comment" rows="4" placeholder="Коментар"></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn--primary btn--full submit-btn" id="submitBtn">
-                                <span class="btn-state btn-state--default">
-                                    <span class="material-symbols-outlined btn__icon">send</span>Надіслати заявку
-                                </span>
-                                <span class="btn-state btn-state--loading">
-                                    <span class="spinner"></span>Завантаження...
-                                </span>
-                                <span class="btn-state btn-state--success">
-                                    <span class="material-symbols-outlined btn__icon">check_circle</span>Успішно надіслано
-                                </span>
-                            </button>
-
-                            <p class="form-note" id="formMessage"></p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section reveal" id="contacts">
-        <div class="container">
-            <h2 class="dark-title map-title">ЯК НАС ЗНАЙТИ</h2>
-            <div class="map-embed">
-                <iframe
-                        title="Google Map"
-                        src="https://www.google.com/maps?q=%D0%9A%D0%B2%D1%96%D1%82%D0%BD%D0%B5%D0%B2%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B2%D1%83%D0%BB%D0%BE%D0%BA%201%20%D0%B1%D0%BE%D0%BA%D1%81%201252%20%D0%9A%D0%B8%D1%97%D0%B2&output=embed"
-                        loading="lazy">
-                </iframe>
+                    <button type="submit" class="booking-form__submit">Надіслати заявку</button>
+                    <p class="form-message" id="formMessage"></p>
+                </form>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="footer reveal">
-    <div class="container footer__inner">
+<footer class="footer" id="contacts">
+    <div class="container footer__shell">
         <div class="footer__brand">
-            <img src="img/logo.png" alt="WAG"/>
+            <div class="footer__logo">
+                <img src="img/logo.png" alt="WAG" onerror="this.style.display='none'; this.parentNode.innerHTML='WAG';" />
+            </div>
             <div>
                 <strong>WAG</strong>
                 <p>3D розвал-сходження Hunter у Григорія</p>
             </div>
         </div>
 
-        <div class="footer__contacts">
-            <p><span class="material-symbols-outlined">phone</span><a href="tel:+380638290283">+38 063 829 02 83</a></p>
-            <p><span class="material-symbols-outlined">map</span>Квітневий провулок, 1, бокс 1252, Київ</p>
-            <p><span class="material-symbols-outlined">schedule</span>ПН–СБ: 10:00–19:00 | НД: 10:00–11:00, 15:00–16:00</p>
+        <div class="footer__info">
+            <a href="tel:+380638290283">+38 063 829 02 83</a>
+            <p>Квітневий провулок, 1, бокс 1252, Київ</p>
+            <p>ПН–СБ: 10:00–19:00 | НД: 10:00–11:00, 15:00–16:00</p>
         </div>
+    </div>
 
-        <div class="footer__copy">
-            <span class="material-symbols-outlined">copyright</span>
-            2026 WAG. Усі права захищені.
+    <div class="footer__bottom">
+        <div class="container">
+            <p>© 2026 WAG. Усі права захищені.</p>
         </div>
     </div>
 </footer>
 
-<script src="../untitled10/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

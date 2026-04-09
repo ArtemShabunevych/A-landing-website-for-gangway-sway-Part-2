@@ -3,138 +3,151 @@ const burger = document.getElementById("burger");
 const nav = document.getElementById("nav");
 const bookingForm = document.getElementById("bookingForm");
 const formMessage = document.getElementById("formMessage");
-const revealItems = document.querySelectorAll(".reveal");
-const serviceItems = document.querySelectorAll(".service-item");
-const loadMoreBtn = document.getElementById("loadMoreBtn");
-const serviceButtons = document.querySelectorAll(".service-btn");
-const bookingSection = document.getElementById("booking");
 const serviceSelect = document.getElementById("serviceSelect");
-const submitBtn = document.getElementById("submitBtn");
-const requiredInputs = bookingForm?.querySelectorAll("[required]");
+const serviceButtons = document.querySelectorAll("[data-service]");
+const toggleServicesBtn = document.getElementById("toggleServices");
+const hiddenServiceCards = document.querySelectorAll(".service-card--extra");
+const revealItems = document.querySelectorAll(".reveal");
 
-let visibleServices = 3;
+function handleHeaderScroll() {
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 20);
+}
 
-// ── Header scroll ──
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 20) {
-        header?.classList.add("scrolled");
-    } else {
-        header?.classList.remove("scrolled");
-    }
-});
+handleHeaderScroll();
+window.addEventListener("scroll", handleHeaderScroll);
 
-// ── Burger ──
-burger?.addEventListener("click", () => {
-    nav?.classList.toggle("open");
-});
+function closeMenu() {
+    if (!burger || !nav) return;
+    burger.classList.remove("is-active");
+    burger.setAttribute("aria-expanded", "false");
+    nav.classList.remove("is-open");
+    document.body.style.overflow = "";
+}
 
-nav?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-        nav?.classList.remove("open");
-    });
-});
+function openMenu() {
+    if (!burger || !nav) return;
+    burger.classList.add("is-active");
+    burger.setAttribute("aria-expanded", "true");
+    nav.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+}
 
-// ── Services load more ──
-function renderServices() {
-    serviceItems.forEach((item, index) => {
-        if (index < visibleServices) {
-            item.classList.remove("hidden");
+if (burger && nav) {
+    burger.addEventListener("click", () => {
+        const isOpen = nav.classList.contains("is-open");
+        if (isOpen) {
+            closeMenu();
         } else {
-            item.classList.add("hidden");
+            openMenu();
         }
     });
-    if (visibleServices >= serviceItems.length && loadMoreBtn) {
-        loadMoreBtn.style.display = "none";
-    }
+
+    nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1180) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        const clickedInsideMenu = nav.contains(event.target);
+        const clickedBurger = burger.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedBurger && nav.classList.contains("is-open")) {
+            closeMenu();
+        }
+    });
 }
 
-loadMoreBtn?.addEventListener("click", () => {
-    visibleServices += 3;
-    renderServices();
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (event) {
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+
+        window.scrollTo({
+            top: targetTop,
+            behavior: "smooth"
+        });
+    });
 });
 
-// ── Reveal on scroll ──
-function initRevealAnimation() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.14 });
-    revealItems.forEach((item) => observer.observe(item));
-}
-
-// ── Service buttons → form ──
 serviceButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const selectedService = button.dataset.service;
-        if (serviceSelect) {
+
+        if (serviceSelect && selectedService) {
             serviceSelect.value = selectedService;
         }
-        updateSubmitButtonState();
-        bookingSection?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 });
 
-// ── Submit button state ──
-function setButtonState(state) {
-    if (!submitBtn) return;
-    submitBtn.classList.remove("is-loading", "is-success");
-    if (state === "loading") {
-        submitBtn.classList.add("is-loading");
-        submitBtn.disabled = true;
-    } else if (state === "success") {
-        submitBtn.classList.add("is-success");
-        submitBtn.disabled = true;
-    } else if (state === "disabled") {
-        submitBtn.disabled = true;
-    } else {
-        submitBtn.disabled = false;
-    }
+if (toggleServicesBtn && hiddenServiceCards.length) {
+    let isExpanded = false;
+
+    toggleServicesBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+
+        hiddenServiceCards.forEach((card) => {
+            card.classList.toggle("is-hidden", !isExpanded);
+        });
+
+        toggleServicesBtn.textContent = isExpanded ? "Згорнути" : "Завантажити ще";
+    });
 }
 
-function updateSubmitButtonState() {
-    if (!bookingForm || !submitBtn) return;
-    const formData = new FormData(bookingForm);
-    const name = formData.get("name")?.toString().trim();
-    const phone = formData.get("phone")?.toString().trim();
-    const service = formData.get("service")?.toString().trim();
-    const isValid = Boolean(name && phone && service);
-    if (submitBtn.classList.contains("is-loading") || submitBtn.classList.contains("is-success")) return;
-    setButtonState(isValid ? "default" : "disabled");
+if (bookingForm && formMessage) {
+    bookingForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const submitButton = bookingForm.querySelector(".booking-form__submit");
+        const originalText = submitButton ? submitButton.textContent : "";
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Завантаження...";
+        }
+
+        formMessage.textContent = "";
+
+        setTimeout(() => {
+            formMessage.textContent = "Успішно надіслано";
+            bookingForm.reset();
+
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        }, 700);
+    });
 }
 
-requiredInputs?.forEach((input) => {
-    input.addEventListener("input", updateSubmitButtonState);
-    input.addEventListener("change", updateSubmitButtonState);
-});
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    obs.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
 
-bookingForm?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(bookingForm);
-    const name = formData.get("name")?.toString().trim();
-    const phone = formData.get("phone")?.toString().trim();
-    const service = formData.get("service")?.toString().trim();
-    if (!name || !phone || !service) {
-        formMessage.textContent = "Будь ласка, заповніть обов'язкові поля.";
-        formMessage.style.color = "#d11f1f";
-        setButtonState("disabled");
-        return;
-    }
-    formMessage.textContent = "";
-    setButtonState("loading");
-    await new Promise((resolve) => setTimeout(resolve, 1800));
-    formMessage.textContent = "Заявку збережено. Дякую!";
-    formMessage.style.color = "#198754";
-    setButtonState("success");
-    setTimeout(() => {
-        bookingForm.reset();
-        submitBtn.classList.remove("is-success");
-        updateSubmitButtonState();
-    }, 2200);
-});
-
-renderServices();
-initRevealAnimation();
-updateSubmitButtonState();
+    revealItems.forEach((item) => observer.observe(item));
+} else {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+}
